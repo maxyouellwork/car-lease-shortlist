@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Car Lease Shortlist — Automatic · Tech-first</title>
+<title>Car Lease Shortlist — Automatics (with notes)</title>
 <style>
   :root{
     --bg:#0e1116; --card:#171c24; --line:#2a313c;
@@ -15,16 +15,18 @@
     background:var(--bg);color:var(--txt);line-height:1.45;padding:18px 14px 60px}
   .wrap{max-width:1180px;margin:0 auto}
   h1{font-size:1.65rem;letter-spacing:-.02em;margin-bottom:4px}
-  .sub{color:var(--mut);font-size:.95rem;margin-bottom:18px}
+  .sub{color:var(--mut);font-size:.95rem;margin-bottom:16px}
   .banner{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px;font-size:.9rem;color:var(--mut)}
   .banner b{color:var(--txt)}
   .compare{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
   .compare span{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.82rem}
+  .tip{background:#15281c;border:1px solid #2a5d3c;color:#bff0d0;border-radius:12px;padding:10px 14px;margin-bottom:14px;font-size:.85rem}
+  .tip b{color:#fff}
   .infobox{background:var(--info);border:1px solid #2a4a63;border-radius:14px;padding:13px 16px;margin-bottom:12px;font-size:.86rem}
   .infobox h3{font-size:.92rem;margin-bottom:5px;color:#7fd0ff}
   .infobox p{color:#cfe2ef;margin-bottom:4px}
   .infobox b{color:#fff}
-  h2{font-size:1.25rem;margin:30px 0 4px;letter-spacing:-.01em}
+  h2{font-size:1.3rem;margin:32px 0 4px;letter-spacing:-.01em}
   .h2sub{color:var(--mut);font-size:.85rem;margin-bottom:14px}
   .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
   .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;position:relative}
@@ -34,10 +36,10 @@
   .instock{background:#123a23;color:#5fe39a;border:1px solid #1d5d39}
   .order{background:#3a2f12;color:#ffce6b;border:1px solid #5d4a1d}
   .imgwrap{background:linear-gradient(160deg,#fbfdff,#e7edf3);padding:14px 14px 6px;text-align:center}
-  .imgwrap img{width:100%;max-height:175px;object-fit:contain;display:block;margin:0 auto}
+  .imgwrap img{width:100%;max-height:170px;object-fit:contain;display:block;margin:0 auto}
   .dash{background:#0c0f14}
-  .dash img{width:100%;max-height:120px;object-fit:cover;object-position:center;display:block;opacity:.95}
-  .body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .dash img{width:100%;max-height:115px;object-fit:cover;object-position:center;display:block;opacity:.95}
+  .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
   .name{font-size:1.12rem;font-weight:700}
   .trim{color:var(--mut);font-size:.81rem;margin-top:1px}
   .priceRow{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:2px}
@@ -52,7 +54,18 @@
   .feats li{font-size:.83rem;padding-left:20px;position:relative}
   .feats li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
   .feats li.star::before{content:"★";color:#c9a8ff}
-  .note{font-size:.74rem;color:var(--mut);font-style:italic;margin-top:auto;padding-top:6px}
+  .note{font-size:.74rem;color:var(--mut);font-style:italic;padding-top:4px}
+  .cmts{border-top:1px dashed var(--line);margin-top:6px;padding-top:10px}
+  .cmts h4{font-size:.72rem;color:var(--mut);margin-bottom:7px;text-transform:uppercase;letter-spacing:.06em}
+  .cmt{font-size:.82rem;background:#0f1319;border:1px solid var(--line);border-radius:9px;padding:7px 10px;margin-bottom:5px;word-wrap:break-word}
+  .cmt b{color:var(--accent)}
+  .cmt-time{color:var(--mut);font-size:.7rem;font-weight:400;margin-left:4px}
+  .cmt-empty{font-size:.78rem;color:var(--mut);font-style:italic;margin-bottom:7px}
+  .cmt-form{display:flex;flex-direction:column;gap:6px;margin-top:7px}
+  .cmt-form input,.cmt-form textarea{background:#0f1319;border:1px solid var(--line);border-radius:9px;color:var(--txt);padding:8px 10px;font:inherit;font-size:.82rem;width:100%}
+  .cmt-form textarea{resize:vertical;min-height:44px}
+  .cmt-post{background:var(--accent);color:#07140c;border:none;border-radius:9px;padding:9px;font-weight:700;cursor:pointer;font-size:.85rem}
+  .cmt-post:disabled{opacity:.55;cursor:default}
   footer{margin-top:30px;color:var(--mut);font-size:.8rem;border-top:1px solid var(--line);padding-top:16px}
   footer b{color:var(--txt)}
 </style>
@@ -60,230 +73,368 @@
 <body>
 <div class="wrap">
   <h1>🚗 Car Lease Shortlist — Automatics</h1>
-  <div class="sub">Automatic · petrol &amp; hybrid · 48 months · 10,000 miles/yr · tiny deposit · inc. VAT · pulled 2 Jun 2026</div>
+  <div class="sub">Automatic · petrol &amp; hybrid · 48 months · 10,000 miles/yr · 1-month deposit · inc. VAT · pulled 3 Jun 2026</div>
+
+  <div class="tip">💬 <b>Dad — leave your thoughts!</b> There's a comment box under every car. Pop your name + a note and hit post — it saves, and we'll both see each other's comments here.</div>
 
   <div class="banner">
-    All <b>automatic</b>, <b>brand new</b>, with <b>road tax + warranty included</b> — and all cheaper than the current Audi.
+    All <b>automatic</b>, <b>brand new</b>, with <b>road tax + warranty included</b>, and all cheaper than the current Audi (£330/mo). Quoted with the smallest <b>1-month deposit</b> (≈ one monthly payment upfront).
     <div class="compare">
-      <span>🔴 Audi A1 (now): <b>£330/mo</b>, no parking sensors</span>
-      <span>🟢 Best tech pick from <b>£259/mo</b></span>
-      <span>🟢 Cheapest from <b>£226/mo</b></span>
+      <span>🔴 Audi A1 now: <b>£330/mo</b></span>
+      <span>🟢 Tech picks from <b>£259</b></span>
+      <span>🟢 Budget from <b>£226</b></span>
     </div>
   </div>
 
   <div class="infobox">
-    <h3>🆚 Tiggo 4 vs Tiggo 7 — the 4 is actually the expensive one</h3>
-    <p>The <b>Tiggo 4</b> leases for <b>£306/mo even at 5,000 miles with a big 9-month deposit</b> (≈£2,760 upfront) — and LeaseLoco rates it poor value (48/100). The bigger <b>Tiggo 7</b> is <b>~£290/mo at 10k miles with a 1-month deposit</b>, scores better, and gets the panoramic roof. <b>So the Tiggo 7 wins — don't pay more for the smaller 4.</b></p>
+    <h3>🆚 Tiggo 4 vs Tiggo 7 — the 4 is the pricey one</h3>
+    <p>The <b>Tiggo 4</b> leases for <b>£306/mo at just 5,000 miles with a £2,760 deposit</b> (poor value, 48/100). The bigger <b>Tiggo 7</b> is <b>~£290/mo at 10k miles, 1-month deposit</b>, scores better &amp; gets the panoramic roof. <b>Go for the 7, not the 4.</b></p>
   </div>
-
   <div class="infobox">
-    <h3>📷 Cameras, sensors &amp; the panoramic roof — what the money buys</h3>
-    <p>At <b>£226–297/mo</b> you reliably get <b>reversing camera + parking sensors</b>, wireless CarPlay/Android Auto, adaptive cruise, big screens. A true <b>360° surround camera</b> only appears on the next trim up (~£310–330/mo).</p>
-    <p>🌅 <b>Panoramic sunroof:</b> the <b>Chery Tiggo 7 Summit</b> has a proper electric tilt/slide pano roof — for about the same price as the base trim. (The Peugeot 2008 doesn't offer one.)</p>
+    <h3>📷 Cameras, sensors &amp; the panoramic roof</h3>
+    <p>At these prices you get <b>reversing camera + parking sensors</b>, wireless CarPlay, adaptive cruise. A full <b>360° surround camera</b> needs the next trim up (~£310–330). 🌅 For a <b>panoramic sunroof</b>, the <b>Chery Tiggo 7 Summit</b> is the pick (≈ base price). The Peugeot 2008 doesn't offer one.</p>
   </div>
 
   <h2>🏆 Top 5 — best tech &amp; ease (cameras, sensors, kit)</h2>
-  <div class="h2sub">Quoted with the smallest <b>1-month deposit</b> (deposit ≈ one monthly payment). All under your £330 Audi.</div>
+  <div class="h2sub">The most-loaded picks. £259–297/mo, all under your Audi.</div>
   <div class="grid">
 
-    <!-- 1 TIGGO 7 -->
-    <div class="card pick">
+    <div class="card pick" data-car="tiggo7">
       <div class="rank">1</div><div class="stock instock">✓ In stock</div>
       <div class="imgwrap"><img src="https://vehicle.images.leaseloco.com/display/profile/chery_tiggo_7_edit.webp" alt="Chery Tiggo 7" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">Chery Tiggo 7 — Summit</div><div class="trim">1.6T DCT (auto) · medium SUV · the Tiggo, bigger &amp; cheaper than the 4</div></div>
-        <div class="priceRow"><span class="price">~£290</span><span class="permo">/mo</span><span class="dep">≈£290 deposit · save £40/mo vs Audi</span></div>
-        <div class="stats"><span class="roof">🌅 Panoramic sunroof</span><span><b>484L</b> boot 📦</span><span>0–62 <b>9.4s</b></span></div>
+        <div><div class="name">Chery Tiggo 7 — Summit</div><div class="trim">1.6T DCT (auto) · medium SUV · bigger &amp; cheaper than the Tiggo 4</div></div>
+        <div class="priceRow"><span class="price">~£290</span><span class="permo">/mo</span><span class="dep">≈£290 deposit · save £40/mo</span></div>
+        <div class="stats"><span class="roof">🌅 Panoramic roof</span><span><b>484L</b> boot 📦</span><span>0–62 <b>9.4s</b></span></div>
         <ul class="feats">
-          <li class="star">Electric tilt/slide panoramic roof (Summit)</li>
-          <li>Front + rear parking sensors + reversing camera</li>
+          <li class="star">Electric tilt/slide panoramic sunroof (Summit)</li>
+          <li>Front + rear sensors + reversing camera</li>
           <li>Wireless CarPlay/Android Auto, synthetic leather</li>
           <li>Heated seats, 2-zone climate, 18" alloys</li>
         </ul>
-        <div class="note">Summit trim costs ≈ the same as base but adds the roof + heated seats. Biggest boot here.</div>
+        <div class="note">Summit ≈ same price as base but adds the roof. Biggest boot here.</div>
       </div>
     </div>
 
-    <!-- 2 PEUGEOT 2008 -->
-    <div class="card pick">
+    <div class="card pick" data-car="peugeot2008">
       <div class="rank">2</div><div class="stock instock">✓ In stock (Jul)</div>
       <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Peugeot/2008/5SUV%20GT/peugeot_242008gtsu2fb_sideview.png" alt="Peugeot 2008" onerror="this.parentElement.style.display='none'"></div>
       <div class="dash"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Peugeot/2008/5SUV%20GT/peugeot_242008gtsu2fb_dashboard.png" alt="2008 interior" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">Peugeot 2008 GT ⭐ your favourite</div><div class="trim">1.2 PureTech 130 GT EAT8 (auto) · small SUV · top trim</div></div>
+        <div><div class="name">Peugeot 2008 GT ⭐ Max's favourite</div><div class="trim">1.2 PureTech 130 GT EAT8 (auto) · small SUV · top trim</div></div>
         <div class="priceRow"><span class="price">£291.49</span><span class="permo">/mo</span><span class="dep">≈£291 deposit · save £39/mo</span></div>
-        <div class="stats"><span><b>45</b> mpg</span><span><b>434L</b> boot</span><span>0–62 <b>9.2s</b></span><span>"Amazing value" 91</span></div>
+        <div class="stats"><span><b>45</b> mpg</span><span><b>434L</b> boot</span><span>"Amazing value" 91</span></div>
         <ul class="feats">
           <li>Front + rear parking sensors</li>
           <li>Wireless CarPlay + 3D digital i-Cockpit</li>
           <li>Sport seats, auto climate, tinted rear</li>
           <li>Range-topping GT trim</li>
         </ul>
-        <div class="note">Classiest cabin here. No panoramic roof option, but the highest value score of all.</div>
+        <div class="note">Classiest cabin &amp; highest value score. No panoramic roof option.</div>
       </div>
     </div>
 
-    <!-- 3 MG ZS -->
-    <div class="card">
+    <div class="card" data-car="peugeot208">
       <div class="rank">3</div><div class="stock instock">✓ In stock</div>
-      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/MG/ZSEV/5SUV%20Trophy/mg_22zsevluxurysu1rb_sideview.png" alt="MG ZS" onerror="this.parentElement.style.display='none'"></div>
+      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2025/7/31/16-1/a02c5db53a0ee725d5733e8b411bc0dd/Pix/Peugeot/208/5Hatchback%20Allure_25/peugeot_25208allurehb2fbfr_sideview.png" alt="Peugeot 208" onerror="this.parentElement.style.display='none'"></div>
+      <div class="dash"><img src="https://vehicle-images.leaseloco.com/2025/7/31/16-1/a02c5db53a0ee725d5733e8b411bc0dd/Pix/Peugeot/208/5Hatchback%20Allure_25/peugeot_25208allurehb2fbfr_dashboard.png" alt="208 interior" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">MG ZS Hybrid+</div><div class="trim">1.5 Hybrid+ SE Auto · medium SUV · cheapest tech SUV</div></div>
-        <div class="priceRow"><span class="price">£258.96</span><span class="permo">/mo</span><span class="dep">≈£259 deposit · save £71/mo</span></div>
-        <div class="stats"><span><b>55.4</b> mpg</span><span><b>443L</b> boot</span><span>0–62 <b>8.7s</b></span><span>self-charging hybrid</span></div>
+        <div><div class="name">Peugeot 208 GT</div><div class="trim">1.2 Hybrid 145 GT (auto) · supermini · the 2008's smaller sister</div></div>
+        <div class="priceRow"><span class="price">£291.98</span><span class="permo">/mo</span><span class="dep">≈£292 deposit · save £38/mo</span></div>
+        <div class="stats"><span>hybrid</span><span>3D i-Cockpit</span><span>top GT trim</span></div>
         <ul class="feats">
-          <li>Reverse parking aid</li>
-          <li>Sat nav + wireless CarPlay/Android Auto</li>
-          <li>Adaptive cruise (no plug needed)</li>
-          <li>Auto air-con, 17" alloys</li>
+          <li>Rear parking sensors + camera</li>
+          <li>Wireless CarPlay + 3D digital i-Cockpit</li>
+          <li>Self-charging hybrid, sport seats</li>
+          <li>Smaller/easier to park than the 2008, same tech</li>
         </ul>
-        <div class="note">Most tech-per-pound &amp; £71/mo cheaper than the Audi. (Photo: previous-gen; current restyled.)</div>
+        <div class="note">Same kit as the 2008 in a smaller body. (Photo: Allure trim.)</div>
       </div>
     </div>
 
-    <!-- 4 OMODA 5 -->
-    <div class="card">
-      <div class="rank">4</div><div class="stock order">Factory order</div>
+    <div class="card" data-car="jeep-avenger">
+      <div class="rank">4</div><div class="stock instock">✓ In stock</div>
+      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Jeep/AvengerElectric/5SUV%20Summit/jeep_24avengerevsummitsu1b_sideview.png" alt="Jeep Avenger" onerror="this.parentElement.style.display='none'"></div>
+      <div class="dash"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Jeep/AvengerElectric/5SUV%20Summit/jeep_24avengerevsummitsu1b_dashboard.png" alt="Jeep interior" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Jeep Avenger — Summit</div><div class="trim">1.2 auto · small SUV · most kit of all</div></div>
+        <div class="priceRow"><span class="price">£292.48</span><span class="permo">/mo</span><span class="dep">≈£292 deposit · save £38/mo</span></div>
+        <div class="stats"><span><b>49.6</b> mpg</span><span>European Car of the Year</span></div>
+        <ul class="feats">
+          <li>360° parking <b>sensors</b> + reversing camera</li>
+          <li>Wireless CarPlay/Android Auto</li>
+          <li>Auto climate, LED projector lights</li>
+          <li>18" alloys, privacy glass</li>
+        </ul>
+        <div class="note">Most gadgets of the lot &amp; loads of character.</div>
+      </div>
+    </div>
+
+    <div class="card" data-car="omoda5">
+      <div class="rank">5</div><div class="stock order">Factory order</div>
       <div class="imgwrap"><img src="https://vehicle.images.leaseloco.com/display/profile/omoda_5_edit_1.webp" alt="Omoda 5" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">Omoda 5</div><div class="trim">1.5T SHS-H Knight (auto) · medium SUV · full hybrid</div></div>
         <div class="priceRow"><span class="price">£297.49</span><span class="permo">/mo</span><span class="dep">≈£297 deposit · save £33/mo</span></div>
         <div class="stats"><span><b>224</b> bhp ⚡</span><span>0–62 <b>7.9s</b> 🏎️</span><span><b>51.4</b> mpg</span></div>
         <ul class="feats">
-          <li>Wireless CarPlay/Android Auto, big twin screens</li>
+          <li>Wireless CarPlay/Android Auto, twin big screens</li>
           <li>Connected navigation</li>
           <li>Heated front sport seats, synthetic leather</li>
           <li class="star">Noble trim (+£42) adds 360° camera + pano roof</li>
         </ul>
-        <div class="note">Quickest car here by far. Same group as Chery — very tech-forward.</div>
-      </div>
-    </div>
-
-    <!-- 5 JUKE -->
-    <div class="card">
-      <div class="rank">5</div><div class="stock instock">✓ In stock</div>
-      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2026/5/25/14-0/3be24ec6da3de5d5093e63da8bd24688/Pix/Nissan/Juke/5SUV%20Nconnecta_26/nissan_26jukenconnectasu2rfruk_sideview.png" alt="Nissan Juke" onerror="this.parentElement.style.display='none'"></div>
-      <div class="dash"><img src="https://vehicle-images.leaseloco.com/2026/5/25/14-0/3be24ec6da3de5d5093e63da8bd24688/Pix/Nissan/Juke/5SUV%20Nconnecta_26/nissan_26jukenconnectasu2rfruk_dashboard.png" alt="Juke interior" onerror="this.parentElement.style.display='none'"></div>
-      <div class="body">
-        <div><div class="name">Nissan Juke</div><div class="trim">1.0 DiG-T Acenta Premium DCT (auto) · crossover</div></div>
-        <div class="priceRow"><span class="price">£265.03</span><span class="permo">/mo</span><span class="dep">≈£265 deposit · save £65/mo</span></div>
-        <div class="stats"><span><b>47.9</b> mpg</span><span><b>422L</b> boot</span><span>auto (DCT)</span></div>
-        <ul class="feats">
-          <li>Rear parking sensors + reversing camera</li>
-          <li>8" touchscreen, Apple CarPlay/Android Auto</li>
-          <li>Climate control, cruise</li>
-          <li>Alloys, privacy glass</li>
-        </ul>
-        <div class="note">Characterful, easy, in stock — the safe, sensible automatic.</div>
+        <div class="note">Quickest car here by far. Very tech-forward — same group as Chery.</div>
       </div>
     </div>
 
   </div>
 
-  <h2>💷 Top 5 — under £250 (smaller budget)</h2>
-  <div class="h2sub">At a true <b>1-month deposit</b> only the first 3 dip under £250; the last 2 sneak under with a still-small <b>3-month deposit</b> (shown).</div>
+  <h2>💷 Top 5 — mid-range value (£259–270)</h2>
+  <div class="h2sub">Sensible, well-equipped autos — mostly in stock, cheaper than the tech picks.</div>
   <div class="grid">
 
-    <!-- 1 MG3 -->
-    <div class="card pick">
+    <div class="card pick" data-car="mg-zs">
+      <div class="rank">1</div><div class="stock instock">✓ In stock</div>
+      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/MG/ZSEV/5SUV%20Trophy/mg_22zsevluxurysu1rb_sideview.png" alt="MG ZS" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">MG ZS Hybrid+ ⭐ value champ</div><div class="trim">1.5 Hybrid+ SE Auto · medium SUV</div></div>
+        <div class="priceRow"><span class="price">£258.96</span><span class="permo">/mo</span><span class="dep">≈£259 deposit · save £71/mo</span></div>
+        <div class="stats"><span><b>55.4</b> mpg</span><span><b>443L</b> boot</span><span>0–62 <b>8.7s</b></span></div>
+        <ul class="feats">
+          <li>Sat nav + wireless CarPlay/Android Auto</li>
+          <li>Adaptive cruise, reverse parking aid</li>
+          <li>Self-charging hybrid (no plug), auto air-con</li>
+          <li>Biggest saving vs the Audi (£71/mo)</li>
+        </ul>
+        <div class="note">Most tech-per-pound. (Photo previous-gen; current car restyled.)</div>
+      </div>
+    </div>
+
+    <div class="card" data-car="vw-polo">
+      <div class="rank">2</div><div class="stock instock">✓ In stock</div>
+      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Volkswagen/Polo/5Hatchback%20Life/volkswagen_24pololifehb6fb_sideview.png" alt="VW Polo" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Volkswagen Polo</div><div class="trim">1.0 TSI Match DSG (auto) · supermini</div></div>
+        <div class="priceRow"><span class="price">£259.99</span><span class="permo">/mo</span><span class="dep">≈£260 deposit · save £70/mo</span></div>
+        <div class="stats"><span><b>53.3</b> mpg</span><span><b>351L</b> boot</span></div>
+        <ul class="feats">
+          <li>Rear parking aid</li>
+          <li>Predictive adaptive cruise control</li>
+          <li>LED headlights, DAB, Bluetooth</li>
+          <li>Premium feel, like the Audi for less</li>
+        </ul>
+        <div class="note">The grown-up, badge-proud choice. (Photo: Life trim.)</div>
+      </div>
+    </div>
+
+    <div class="card" data-car="juke">
+      <div class="rank">3</div><div class="stock instock">✓ In stock</div>
+      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2026/5/25/14-0/3be24ec6da3de5d5093e63da8bd24688/Pix/Nissan/Juke/5SUV%20Nconnecta_26/nissan_26jukenconnectasu2rfruk_sideview.png" alt="Nissan Juke" onerror="this.parentElement.style.display='none'"></div>
+      <div class="dash"><img src="https://vehicle-images.leaseloco.com/2026/5/25/14-0/3be24ec6da3de5d5093e63da8bd24688/Pix/Nissan/Juke/5SUV%20Nconnecta_26/nissan_26jukenconnectasu2rfruk_dashboard.png" alt="Juke interior" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Nissan Juke</div><div class="trim">1.0 DiG-T Acenta Premium DCT (auto) · crossover</div></div>
+        <div class="priceRow"><span class="price">£265.03</span><span class="permo">/mo</span><span class="dep">≈£265 deposit · save £65/mo</span></div>
+        <div class="stats"><span><b>47.9</b> mpg</span><span><b>422L</b> boot</span></div>
+        <ul class="feats">
+          <li>Rear sensors + reversing camera</li>
+          <li>8" touchscreen, Apple CarPlay/Android Auto</li>
+          <li>Climate control, cruise</li>
+          <li>Characterful, easy, in stock</li>
+        </ul>
+        <div class="note">The safe, sensible automatic crossover.</div>
+      </div>
+    </div>
+
+    <div class="card" data-car="suzuki-swift">
+      <div class="rank">4</div><div class="stock instock">✓ In stock</div>
+      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Suzuki/Swift/5Hatchback%20SZTHybrid/suzuki_21swiftglplushevhb4fb_sideview.png" alt="Suzuki Swift" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Suzuki Swift</div><div class="trim">1.2 Mild Hybrid Motion Auto · supermini</div></div>
+        <div class="priceRow"><span class="price">£268.27</span><span class="permo">/mo</span><span class="dep">≈£268 deposit · save £62/mo</span></div>
+        <div class="stats"><span><b>64.2</b> mpg ⛽</span><span>mild hybrid</span></div>
+        <ul class="feats">
+          <li>Rear parking aid</li>
+          <li>Navigation + heated front seats</li>
+          <li>Bluetooth, privacy glass, 16" alloys</li>
+          <li>Most economical here (64 mpg)</li>
+        </ul>
+        <div class="note">Light, frugal &amp; cheap to run. (Photo: previous-gen.)</div>
+      </div>
+    </div>
+
+    <div class="card" data-car="vw-taigo">
+      <div class="rank">5</div><div class="stock order">Factory order</div>
+      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2026/3/11/12-1/270dbe228f4344718be1b2b662c98c1d/Pix/Volkswagen/Taigo/5SUV%20Rline_26/volkswagen_26taigorlinesu1fruk_sideview.png" alt="VW Taigo" onerror="this.parentElement.style.display='none'"></div>
+      <div class="dash"><img src="https://vehicle-images.leaseloco.com/2026/3/11/12-1/270dbe228f4344718be1b2b662c98c1d/Pix/Volkswagen/Taigo/5SUV%20Rline_26/volkswagen_26taigorlinesu1fruk_dashboard.png" alt="Taigo interior" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Volkswagen Taigo</div><div class="trim">1.0 TSI Match DSG (auto) · coupé-SUV</div></div>
+        <div class="priceRow"><span class="price">£270.13</span><span class="permo">/mo</span><span class="dep">≈£270 deposit · save £60/mo</span></div>
+        <div class="stats"><span><b>51.4</b> mpg</span><span><b>440L</b> boot</span></div>
+        <ul class="feats">
+          <li>Rear parking aid</li>
+          <li>Predictive adaptive cruise control</li>
+          <li>Keyless entry/start, wireless phone charging</li>
+          <li>LED lights, tinted glass</li>
+        </ul>
+        <div class="note">Classy VW coupé-SUV looks, big boot.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>🪙 Top 5 — proper budget (cheapest)</h2>
+  <div class="h2sub">Lowest monthlies, tiny 1-month deposit. The first three are genuinely under £250.</div>
+  <div class="grid">
+
+    <div class="card pick" data-car="mg3">
       <div class="rank">1</div><div class="stock instock">✓ In stock</div>
       <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2026/1/16/10-2/3eed54975808354beb980c7fc3c3bd63/Pix/MG/MG3HybridPLUS/5Hatchback%20Luxury/mg_25mg3hybridplusluxuryhb1bfruk_sideview.png" alt="MG3" onerror="this.parentElement.style.display='none'"></div>
       <div class="dash"><img src="https://vehicle-images.leaseloco.com/2026/1/16/10-2/3eed54975808354beb980c7fc3c3bd63/Pix/MG/MG3HybridPLUS/5Hatchback%20Luxury/mg_25mg3hybridplusluxuryhb1bfruk_dashboard.png" alt="MG3 interior" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">MG3 Hybrid+</div><div class="trim">1.5 Hybrid Auto · supermini · cheapest auto hybrid</div></div>
-        <div class="priceRow"><span class="price">£225.83</span><span class="permo">/mo</span><span class="dep">≈£226 deposit (1mo) · save £104/mo</span></div>
-        <div class="stats"><span>self-charging hybrid</span><span>10.25" screen</span></div>
+        <div><div class="name">MG3 Hybrid+ 👑 cheapest</div><div class="trim">1.5 Hybrid Auto · supermini</div></div>
+        <div class="priceRow"><span class="price">£225.83</span><span class="permo">/mo</span><span class="dep">≈£226 deposit · save £104/mo</span></div>
+        <div class="stats"><span>full hybrid</span><span>10.25" screen</span></div>
         <ul class="feats">
           <li>Reversing camera</li>
           <li>Wireless Apple CarPlay/Android Auto</li>
           <li>Big 10.25" touchscreen</li>
-          <li>Cheapest automatic here — £104/mo under the Audi</li>
+          <li>£104/mo under the Audi — incredible value</li>
         </ul>
-        <div class="note">Astonishing value for a full hybrid auto. Less "premium" feel, but huge saving.</div>
+        <div class="note">A full hybrid auto for £226 is remarkable. Less "premium", huge saving.</div>
       </div>
     </div>
 
-    <!-- 2 i10 -->
-    <div class="card">
+    <div class="card" data-car="hyundai-i10">
       <div class="rank">2</div><div class="stock instock">✓ In stock</div>
       <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Hyundai/i10/5Hatchback%20Select/hyundai_24i10twisthb3fb_sideview.png" alt="Hyundai i10" onerror="this.parentElement.style.display='none'"></div>
       <div class="dash"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Hyundai/i10/5Hatchback%20Select/hyundai_24i10twisthb3fb_dashboard.png" alt="i10 interior" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">Hyundai i10</div><div class="trim">1.0 Advance Auto Nav · city car</div></div>
-        <div class="priceRow"><span class="price">£227.11</span><span class="permo">/mo</span><span class="dep">≈£227 deposit (1mo) · save £103/mo</span></div>
-        <div class="stats"><span>tiny &amp; easy to park</span><span>auto</span></div>
+        <div class="priceRow"><span class="price">£227.11</span><span class="permo">/mo</span><span class="dep">≈£227 deposit · save £103/mo</span></div>
+        <div class="stats"><span>tiny &amp; easy to park</span></div>
         <ul class="feats">
           <li>Navigation + Apple CarPlay/Android Auto</li>
           <li>Rear camera</li>
-          <li>Super easy to drive &amp; park in town</li>
+          <li>Dead easy in town</li>
           <li>£103/mo under the Audi</li>
         </ul>
-        <div class="note">Smallest, cheapest to run. Great if simple city driving is the priority.</div>
+        <div class="note">Smallest &amp; cheapest to run. Great if it's mostly town driving.</div>
       </div>
     </div>
 
-    <!-- 3 CORSA -->
-    <div class="card">
+    <div class="card" data-car="vauxhall-corsa">
       <div class="rank">3</div><div class="stock instock">✓ In stock</div>
       <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Vauxhall/Corsa/5Hatchback%20GS/vauxhall_24corsagshb6fb_sideview.png" alt="Vauxhall Corsa" onerror="this.parentElement.style.display='none'"></div>
       <div class="dash"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Vauxhall/Corsa/5Hatchback%20GS/vauxhall_24corsagshb6fb_dashboard.png" alt="Corsa interior" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">Vauxhall Corsa GS</div><div class="trim">1.2 Turbo GS Auto · supermini · sporty trim</div></div>
-        <div class="priceRow"><span class="price">£245.69</span><span class="permo">/mo</span><span class="dep">≈£246 deposit (1mo) · save £84/mo</span></div>
-        <div class="stats"><span>"Great value" 86</span><span>auto</span></div>
+        <div class="priceRow"><span class="price">£245.69</span><span class="permo">/mo</span><span class="dep">≈£246 deposit · save £84/mo</span></div>
+        <div class="stats"><span>"Great value" 86</span></div>
         <ul class="feats">
           <li>Rear camera + parking sensors</li>
           <li>Apple CarPlay/Android Auto</li>
           <li>Sporty GS trim, alloys, LED</li>
           <li>Best-equipped of the true sub-£250 autos</li>
         </ul>
-        <div class="note">The most car for under £250 at a 1-month deposit.</div>
+        <div class="note">Most car for under £250 at a 1-month deposit.</div>
       </div>
     </div>
 
-    <!-- 4 MG ZS (3mo) -->
-    <div class="card">
-      <div class="rank">4</div><div class="stock instock">✓ In stock</div>
-      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/MG/ZSEV/5SUV%20Trophy/mg_22zsevluxurysu1rb_sideview.png" alt="MG ZS" onerror="this.parentElement.style.display='none'"></div>
+    <div class="card" data-car="seat-ibiza">
+      <div class="rank">4</div><div class="stock order">Factory order</div>
+      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/SEAT/Ibiza/5Hatchback%20SE/seat_24ibizamoveplushb5fb_sideview.png" alt="SEAT Ibiza" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">MG ZS Hybrid+ <span style="color:var(--mut);font-weight:400">(with 3-mo deposit)</span></div><div class="trim">1.5 Hybrid+ SE Auto · medium SUV</div></div>
-        <div class="priceRow"><span class="price">£245.63</span><span class="permo">/mo</span><span class="dep">£737 deposit (3mo) · save £84/mo</span></div>
-        <div class="stats"><span><b>55.4</b> mpg</span><span><b>443L</b> boot</span><span>hybrid</span></div>
+        <div><div class="name">SEAT Ibiza</div><div class="trim">1.0 TSI 115 SE DSG (auto) · supermini</div></div>
+        <div class="priceRow"><span class="price">£254.76</span><span class="permo">/mo</span><span class="dep">≈£255 deposit · save £75/mo</span></div>
+        <div class="stats"><span><b>53.3</b> mpg</span><span><b>355L</b> boot</span></div>
         <ul class="feats">
-          <li>Sat nav + wireless CarPlay, adaptive cruise</li>
-          <li>Reverse parking aid, auto air-con</li>
-          <li>A proper hybrid SUV under £250</li>
-          <li>Same car as the tech list — just a bigger deposit</li>
+          <li>Full LED auto headlights</li>
+          <li>8" digital cockpit, Apple CarPlay</li>
+          <li>Sporty &amp; smooth DSG auto box</li>
+          <li>Parking sensors only on higher trim</li>
         </ul>
-        <div class="note">The smart "under £250 but still an SUV with kit" choice.</div>
+        <div class="note">Just over £250 at 1-month deposit; drops under with a 3-month deposit.</div>
       </div>
     </div>
 
-    <!-- 5 VW POLO (3mo) -->
-    <div class="card">
-      <div class="rank">5</div><div class="stock instock">✓ In stock</div>
-      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2024/12/20/20-35/4db9e1cd5d7c16963f5ca3769bf9df6f/Pix/Volkswagen/Polo/5Hatchback%20Life/volkswagen_24pololifehb6fb_sideview.png" alt="VW Polo" onerror="this.parentElement.style.display='none'"></div>
+    <div class="card" data-car="toyota-aygox">
+      <div class="rank">5</div><div class="stock order">Factory order</div>
+      <div class="imgwrap"><img src="https://vehicle-images.leaseloco.com/2025/11/5/13-0/1419898c062d907f80d09f635e99e9fd/Pix/Toyota/AygoX/5Hatchback%20Dynamic/toyota_25aygoxdynamichb1bfr_sideview.png" alt="Toyota Aygo X" onerror="this.parentElement.style.display='none'"></div>
+      <div class="dash"><img src="https://vehicle-images.leaseloco.com/2025/11/5/13-0/1419898c062d907f80d09f635e99e9fd/Pix/Toyota/AygoX/5Hatchback%20Dynamic/toyota_25aygoxdynamichb1bfr_dashboard.png" alt="Aygo X interior" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">Volkswagen Polo <span style="color:var(--mut);font-weight:400">(with 3-mo deposit)</span></div><div class="trim">1.0 TSI Match DSG (auto) · supermini</div></div>
-        <div class="priceRow"><span class="price">£248.38</span><span class="permo">/mo</span><span class="dep">£745 deposit (3mo) · save £82/mo</span></div>
-        <div class="stats"><span><b>53.3</b> mpg</span><span><b>351L</b> boot</span><span>auto</span></div>
+        <div><div class="name">Toyota Aygo X</div><div class="trim">1.5 Hybrid Icon CVT (auto) · city-SUV</div></div>
+        <div class="priceRow"><span class="price">£263.11</span><span class="permo">/mo</span><span class="dep">≈£263 deposit · save £67/mo</span></div>
+        <div class="stats"><span>hybrid</span><span>raised SUV-ish stance</span></div>
         <ul class="feats">
-          <li>Rear parking aid</li>
-          <li>Predictive adaptive cruise control</li>
-          <li>LED headlights, DAB, Bluetooth</li>
-          <li>Premium feel like the Audi, for less</li>
+          <li>Apple CarPlay/Android Auto</li>
+          <li>Reversing camera</li>
+          <li>Toyota reliability, hybrid economy</li>
+          <li>Tiny, high-up, easy to park</li>
         </ul>
-        <div class="note">The grown-up, badge-proud option under £250.</div>
+        <div class="note">Cute crossover-styled city car with bulletproof Toyota hybrid tech.</div>
       </div>
     </div>
 
   </div>
 
   <footer>
-    <b>The fine print:</b> all <b>Personal Contract Hire</b> via LeaseLoco broker partners, <b>48 months / 10,000 miles a year</b>, inc. VAT, pulled <b>2 June 2026</b> — prices move, treat as a strong guide.
-    Deposit = the one-off initial payment; <b>1-month</b> deposit ≈ one monthly payment, <b>3-month</b> ≈ three. "In stock" = fastest delivery (best for an August swap); "factory order" = longer build wait. The Tiggo 7 "~£290" is the Summit trim at 1-month deposit/10k miles.<br><br>
-    <b>Overall pick:</b> <b>Chery Tiggo 7 Summit</b> if you want the cool panoramic roof + most space, or <b>Peugeot 2008 GT</b> for the classiest, highest-value all-rounder. <b>MG ZS Hybrid+</b> is the value-for-money champion. On a budget, the <b>MG3 Hybrid+</b> is unbeatable at £226/mo.
+    <b>Fine print:</b> all <b>Personal Contract Hire</b> via LeaseLoco broker partners, <b>48 months / 10,000 miles a year / 1-month deposit</b>, inc. VAT, pulled <b>3 June 2026</b> — prices move, treat as a strong guide. Deposit ≈ one monthly payment. "In stock" = fastest delivery (best for an August swap); "factory order" = longer build. The Tiggo 7 "~£290" is the Summit (pano-roof) trim.<br><br>
+    <b>Quick steer:</b> 🌅 <b>Tiggo 7 Summit</b> for the roof + most space · ⭐ <b>Peugeot 2008 GT</b> for the classiest all-rounder · 💷 <b>MG ZS Hybrid+</b> for value · 👑 <b>MG3</b> if budget rules.<br><br>
+    💬 Comments are shared &amp; live — Max and Dad can both add notes under any car.
   </footer>
 </div>
+
+<script>
+(function(){
+  var API="https://car-lease-comments.maxyouell-work.workers.dev";
+  var SAVED=localStorage.getItem('cl_name')||'';
+  function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function fmt(ts){try{return new Date(ts).toLocaleDateString('en-GB',{day:'numeric',month:'short'});}catch(e){return '';}}
+  function listHtml(list){
+    if(!list||!list.length) return '<div class="cmt-empty">No notes yet — add one 👇</div>';
+    return list.map(function(c){return '<div class="cmt"><b>'+esc(c.name)+'</b><span class="cmt-time">'+fmt(c.ts)+'</span><br>'+esc(c.text)+'</div>';}).join('');
+  }
+  document.querySelectorAll('[data-car]').forEach(function(card){
+    var body=card.querySelector('.body');
+    var sec=document.createElement('div');
+    sec.className='cmts';
+    sec.innerHTML='<h4>💬 Notes</h4><div data-list><div class="cmt-empty">Loading…</div></div>'+
+      '<div class="cmt-form">'+
+      '<input class="cmt-name" placeholder="Your name" value="'+esc(SAVED)+'" maxlength="40">'+
+      '<textarea class="cmt-text" placeholder="Add a comment…" maxlength="1000"></textarea>'+
+      '<button class="cmt-post">Post comment</button></div>';
+    body.appendChild(sec);
+  });
+  function loadAll(){
+    fetch(API,{cache:'no-store'}).then(function(r){return r.json();}).then(function(all){
+      document.querySelectorAll('[data-car]').forEach(function(card){
+        var id=card.getAttribute('data-car');
+        card.querySelector('[data-list]').innerHTML=listHtml(all[id]);
+      });
+    }).catch(function(){
+      document.querySelectorAll('[data-list]').forEach(function(el){el.innerHTML='<div class="cmt-empty">Couldn\'t load notes (offline?)</div>';});
+    });
+  }
+  loadAll();
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest&&e.target.closest('.cmt-post'); if(!btn) return;
+    var card=btn.closest('[data-car]'); var id=card.getAttribute('data-car');
+    var nameI=card.querySelector('.cmt-name'); var textI=card.querySelector('.cmt-text');
+    var name=(nameI.value||'').trim(); var text=(textI.value||'').trim();
+    if(!text){textI.focus();return;}
+    if(name){localStorage.setItem('cl_name',name);}
+    btn.disabled=true; var orig=btn.textContent; btn.textContent='Saving…';
+    fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({car:id,name:name,text:text})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        card.querySelector('[data-list]').innerHTML=listHtml(d.comments);
+        textI.value='';
+        if(name){document.querySelectorAll('.cmt-name').forEach(function(n){if(!n.value)n.value=name;});}
+      })
+      .catch(function(){alert('Could not save — check your connection and try again.');})
+      .finally(function(){btn.disabled=false;btn.textContent=orig;});
+  });
+})();
+</script>
 </body>
 </html>
