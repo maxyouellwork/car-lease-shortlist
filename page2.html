@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Used Cars — Pay Monthly & Own It (Page 2)</title>
+<style>
+  :root{
+    --bg:#0e1116; --card:#171c24; --line:#2a313c;
+    --txt:#eef2f7; --mut:#9aa7b8; --accent:#43d17a; --accent2:#ffb020; --pick:#43d17a;
+    --chip:#222b36; --info:#1b2c3a; --warn:#3a2415;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    background:var(--bg);color:var(--txt);line-height:1.45;padding:18px 14px 60px}
+  .wrap{max-width:1180px;margin:0 auto}
+  .nav{display:flex;gap:10px;margin-bottom:14px;flex-wrap:wrap}
+  .nav a{font-size:.82rem;text-decoration:none;padding:7px 13px;border-radius:999px;border:1px solid var(--line);color:var(--mut)}
+  .nav a.active{background:var(--accent);color:#07140c;border-color:var(--accent);font-weight:700}
+  h1{font-size:1.65rem;letter-spacing:-.02em;margin-bottom:4px}
+  .sub{color:var(--mut);font-size:.95rem;margin-bottom:16px}
+  .banner{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin-bottom:14px;font-size:.9rem;color:var(--mut)}
+  .banner b{color:var(--txt)}
+  .compare{display:flex;flex-wrap:wrap;gap:10px;margin-top:10px}
+  .compare span{background:var(--chip);border:1px solid var(--line);border-radius:999px;padding:5px 12px;font-size:.82rem}
+  .infobox{background:var(--info);border:1px solid #2a4a63;border-radius:14px;padding:13px 16px;margin-bottom:12px;font-size:.86rem}
+  .infobox h3{font-size:.92rem;margin-bottom:5px;color:#7fd0ff}
+  .infobox p{color:#cfe2ef;margin-bottom:4px}
+  .infobox b{color:#fff}
+  .warnbox{background:var(--warn);border:1px solid #6a4a1d;border-radius:14px;padding:13px 16px;margin-bottom:12px;font-size:.86rem}
+  .warnbox h3{font-size:.92rem;margin-bottom:5px;color:#ffce6b}
+  .warnbox p{color:#f0dcc0;margin-bottom:4px}
+  .warnbox b{color:#fff}
+  h2{font-size:1.3rem;margin:32px 0 4px;letter-spacing:-.01em}
+  .h2sub{color:var(--mut);font-size:.85rem;margin-bottom:14px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:18px}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:18px;overflow:hidden;display:flex;flex-direction:column;position:relative}
+  .card.pick{border-color:var(--pick);box-shadow:0 0 0 1px var(--pick) inset}
+  .badge{position:absolute;top:12px;left:12px;background:#07140c;color:var(--pick);border:1px solid var(--pick);font-weight:700;font-size:.7rem;padding:4px 10px;border-radius:999px;z-index:2}
+  .own{position:absolute;top:12px;right:12px;font-size:.66rem;font-weight:700;padding:4px 9px;border-radius:999px;z-index:2;background:#123a23;color:#5fe39a;border:1px solid #1d5d39}
+  .imgwrap{background:#0c0f14;text-align:center;aspect-ratio:16/10;overflow:hidden}
+  .imgwrap img{width:100%;height:100%;object-fit:cover;display:block}
+  .body{padding:14px 16px 16px;display:flex;flex-direction:column;gap:9px;flex:1}
+  .name{font-size:1.12rem;font-weight:700}
+  .trim{color:var(--mut);font-size:.81rem;margin-top:1px}
+  .priceRow{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap;margin-top:2px}
+  .price{font-size:1.5rem;font-weight:800;color:var(--accent)}
+  .permo{color:var(--mut);font-size:.85rem}
+  .cash{font-size:.78rem;color:var(--accent2);font-weight:600}
+  .stats{display:flex;flex-wrap:wrap;gap:6px}
+  .stats span{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:4px 8px;font-size:.73rem;color:var(--mut)}
+  .stats b{color:var(--txt);font-weight:600}
+  .feats{list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:2px}
+  .feats li{font-size:.83rem;padding-left:20px;position:relative}
+  .feats li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
+  .feats li.rel::before{content:"🔧";left:-1px}
+  .feats li.warn::before{content:"!";color:var(--accent2);font-weight:700}
+  .live{display:inline-block;margin-top:4px;font-size:.8rem;color:#7fd0ff;text-decoration:none;font-weight:600}
+  .note{font-size:.74rem;color:var(--mut);font-style:italic;padding-top:4px}
+  .cmts{border-top:1px dashed var(--line);margin-top:6px;padding-top:10px}
+  .cmts h4{font-size:.72rem;color:var(--mut);margin-bottom:7px;text-transform:uppercase;letter-spacing:.06em}
+  .cmt{font-size:.82rem;background:#0f1319;border:1px solid var(--line);border-radius:9px;padding:7px 10px;margin-bottom:5px;word-wrap:break-word}
+  .cmt b{color:var(--accent)}
+  .cmt-time{color:var(--mut);font-size:.7rem;font-weight:400;margin-left:4px}
+  .cmt-empty{font-size:.78rem;color:var(--mut);font-style:italic;margin-bottom:7px}
+  .cmt-form{display:flex;flex-direction:column;gap:6px;margin-top:7px}
+  .cmt-form input,.cmt-form textarea{background:#0f1319;border:1px solid var(--line);border-radius:9px;color:var(--txt);padding:8px 10px;font:inherit;font-size:.82rem;width:100%}
+  .cmt-form textarea{resize:vertical;min-height:44px}
+  .cmt-post{background:var(--accent);color:#07140c;border:none;border-radius:9px;padding:9px;font-weight:700;cursor:pointer;font-size:.85rem}
+  .cmt-post:disabled{opacity:.55;cursor:default}
+  footer{margin-top:30px;color:var(--mut);font-size:.8rem;border-top:1px solid var(--line);padding-top:16px}
+  footer b{color:var(--txt)}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="nav">
+    <a href="./">① New — Lease (auto)</a>
+    <a class="active" href="page2.html">② Used — Pay monthly &amp; own it</a>
+  </div>
+
+  <h1>🚗 Used Cars — Pay Monthly &amp; Own It</h1>
+  <div class="sub">Dad's idea 👍 · Hire Purchase (HP) · £0 deposit · 60 months · automatic · petrol/hybrid · it's YOURS at the end · prices 6 Jun 2026</div>
+
+  <div class="infobox">
+    <h3>💡 How this differs from leasing</h3>
+    <p>On <b>HP you pay monthly then own the car outright</b> — so at the end you've got an asset worth something (a few grand resale), not nothing. £0 deposit here.</p>
+    <p><b>The honest trade-off:</b> these are <b>used &amp; older</b>, and once any warranty runs out <b>you cover MOT, servicing &amp; repairs yourself</b> (a lease includes all that). So on used, <b>reliability matters more than gadgets</b> — budget ~£40–60/mo for upkeep on top.</p>
+  </div>
+
+  <div class="warnbox">
+    <h3>⚠️ Why no Peugeot 2008 / 308 here</h3>
+    <p>There are tempting low-mileage Peugeot 2008s at this price — but the <b>1.2 PureTech petrol engine has a "wet belt"</b> that can fail expensively. One listing literally said <i>"wet belt replaced."</i> On a car you'll <b>own</b>, I've left them off unless you find one with proof the belt's been done. (Same for Citroën C4 / 308 PureTech.)</p>
+  </div>
+
+  <h2>💷 Best at ~£200/mo (own it) — the nicer cars</h2>
+  <div class="h2sub">Lower-mileage 2016–2021 cars. ~£8,000–9,700 cash · ≈£200/mo over 5 yrs · £0 deposit · then yours.</div>
+  <div class="grid">
+
+    <div class="card pick" data-car="u-fiat500x">
+      <div class="badge">★ LOWEST MILES</div><div class="own">✓ Own it at end</div>
+      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/6e855cbdb25f44509b426e0aa653a28e.jpg" alt="Fiat 500X" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Fiat 500X Pop Star</div><div class="trim">1.4 MultiAir DCT (auto) · small SUV · funky, not chav</div></div>
+        <div class="priceRow"><span class="price">£200</span><span class="permo">/mo (own it)</span><span class="cash">£9,690 cash</span></div>
+        <div class="stats"><span><b>2016</b></span><span><b>26,500</b> mi ⭐</span><span>"Great price"</span><span>1 owner</span></div>
+        <ul class="feats">
+          <li>Lowest mileage here by far (26k)</li>
+          <li>Characterful small SUV, auto</li>
+          <li class="rel">1.4 chain engine OK; DCT auto — get a test drive</li>
+        </ul>
+        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Fiat&model=500X&price-search-type=monthly&maximum-monthly-payment=200&deposit=0&no-of-payments=60&fuel-type=Petrol&sort=price-asc" target="_blank">See live Fiat 500X deals →</a>
+        <div class="note">Stands out for the tiny mileage — barely run in for the year.</div>
+      </div>
+    </div>
+
+    <div class="card pick" data-car="u-captur">
+      <div class="badge">★ NEWEST</div><div class="own">✓ Own it at end</div>
+      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/2d957d2719c74457b9a04ffa7ddb090b.jpg" alt="Renault Captur" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Renault Captur Iconic</div><div class="trim">1.3 TCe Iconic EDC (auto) · small SUV</div></div>
+        <div class="priceRow"><span class="price">£200</span><span class="permo">/mo (own it)</span><span class="cash">£8,350 cash</span></div>
+        <div class="stats"><span><b>2021</b> ⭐</span><span><b>66,000</b> mi</span><span>techy trim</span></div>
+        <ul class="feats">
+          <li>Newest car here (2021), most modern tech</li>
+          <li>Iconic trim: nav, camera, big screen</li>
+          <li class="rel">1.3 engine (Merc co-dev) solid; EDC auto can be hesitant</li>
+        </ul>
+        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Renault&model=Captur&price-search-type=monthly&maximum-monthly-payment=200&deposit=0&no-of-payments=60&fuel-type=Petrol&sort=price-asc" target="_blank">See live Renault Captur deals →</a>
+        <div class="note">Most up-to-date tech of the bunch. Private seller, so haggle.</div>
+      </div>
+    </div>
+
+    <div class="card pick" data-car="u-rav4">
+      <div class="badge">★ MOST RELIABLE</div><div class="own">✓ Own it at end</div>
+      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/90532918409f4530852b173d25869a4d.jpg" alt="Toyota RAV4" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Toyota RAV4 Icon</div><div class="trim">2.0 V-Matic Icon 4WD (auto) · proper SUV</div></div>
+        <div class="priceRow"><span class="price">£200</span><span class="permo">/mo (own it)</span><span class="cash">£8,950 cash</span></div>
+        <div class="stats"><span><b>2013</b></span><span><b>88,000</b> mi</span><span>camera·nav·cruise</span></div>
+        <ul class="feats">
+          <li>Camera, sat nav, cruise, towbar</li>
+          <li class="rel">Toyota = bulletproof; happily does 200k+ miles</li>
+          <li class="warn">Older &amp; higher miles; 2.0 4WD thirstier on fuel</li>
+        </ul>
+        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Toyota&model=RAV4&price-search-type=monthly&maximum-monthly-payment=200&deposit=0&no-of-payments=60&fuel-type=Petrol&sort=price-asc" target="_blank">See live Toyota RAV4 deals →</a>
+        <div class="note">If "own it &amp; never worry" is the goal, Toyota is the safest bet.</div>
+      </div>
+    </div>
+
+    <div class="card" data-car="u-v40">
+      <div class="own">✓ Own it at end</div>
+      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/cf7ef201a5d44e588903b0500645bbb0.jpg" alt="Volvo V40" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Volvo V40 Inscription</div><div class="trim">1.5 T2 Inscription (auto) · premium hatch</div></div>
+        <div class="priceRow"><span class="price">£200</span><span class="permo">/mo (own it)</span><span class="cash">£8,950 cash</span></div>
+        <div class="stats"><span><b>2018</b></span><span><b>75,500</b> mi</span><span>top "Inscription" trim</span></div>
+        <ul class="feats">
+          <li>Classy, premium &amp; very safe — not chav at all</li>
+          <li>High Inscription spec (leather, big screen)</li>
+          <li class="rel">Solid drivetrain; classy alternative to the Audi</li>
+        </ul>
+        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Volvo&model=V40&price-search-type=monthly&maximum-monthly-payment=200&deposit=0&no-of-payments=60&fuel-type=Petrol&sort=price-asc" target="_blank">See live Volvo V40 deals →</a>
+        <div class="note">The grown-up, understated choice if you want premium without the Audi.</div>
+      </div>
+    </div>
+
+    <div class="card" data-car="u-mokkax">
+      <div class="own">✓ Own it at end</div>
+      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/cd8a0fcb77954347b1b5f641f0eb4b5a.jpg" alt="Vauxhall Mokka X" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Vauxhall Mokka X Active</div><div class="trim">1.4i Turbo Active (auto) · small SUV</div></div>
+        <div class="priceRow"><span class="price">£200</span><span class="permo">/mo (own it)</span><span class="cash">£8,945 cash</span></div>
+        <div class="stats"><span><b>2019</b></span><span><b>60,000</b> mi</span><span>"Good price"</span></div>
+        <ul class="feats">
+          <li>Easy, raised small SUV — "stunning first SUV"</li>
+          <li>Reasonable miles for the year</li>
+          <li class="rel">1.4 Turbo simple &amp; cheap to fix; parts everywhere</li>
+        </ul>
+        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Vauxhall&model=Mokka%20X&price-search-type=monthly&maximum-monthly-payment=200&deposit=0&no-of-payments=60&fuel-type=Petrol&sort=price-asc" target="_blank">See live Mokka X deals →</a>
+        <div class="note">Sensible SUV-shaped option, cheap to run &amp; repair.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>🪙 ~£150/mo (your comfort zone) — sensible &amp; cheaper</h2>
+  <div class="h2sub">Older/smaller, fewer toys, but reliable. ~£6,000–7,000 cash · ≈£150/mo · £0 deposit · then yours.</div>
+  <div class="grid">
+
+    <div class="card pick" data-car="u-fabia">
+      <div class="badge">★ LOW MILES</div><div class="own">✓ Own it at end</div>
+      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/b8467f5df87e4f269b6b9e5706d9c9be.jpg" alt="Skoda Fabia" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Škoda Fabia</div><div class="trim">1.2 TSI S DSG (auto) · supermini</div></div>
+        <div class="priceRow"><span class="price">£150</span><span class="permo">/mo (own it)</span><span class="cash">£6,700 cash</span></div>
+        <div class="stats"><span><b>2014</b></span><span><b>23,100</b> mi ⭐</span><span>full history</span></div>
+        <ul class="feats">
+          <li>Tiny mileage (23k) for its age</li>
+          <li>VW-group build quality, smooth DSG auto</li>
+          <li class="rel">Reliable &amp; cheap to run — sensible buy</li>
+        </ul>
+        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Skoda&model=Fabia&price-search-type=monthly&maximum-monthly-payment=150&deposit=0&no-of-payments=60&fuel-type=Petrol&sort=price-asc" target="_blank">See live Škoda Fabia deals →</a>
+        <div class="note">Best value-for-condition in the cheaper tier.</div>
+      </div>
+    </div>
+
+    <div class="card" data-car="u-picanto">
+      <div class="own">✓ Own it at end</div>
+      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/f89e75a09fa144bd9f6c335106fe6e65.jpg" alt="Kia Picanto" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Kia Picanto 2</div><div class="trim">1.25 Auto · city car</div></div>
+        <div class="priceRow"><span class="price">£150</span><span class="permo">/mo (own it)</span><span class="cash">£6,985 cash</span></div>
+        <div class="stats"><span><b>2013</b></span><span><b>37,000</b> mi</span><span>"Good price"</span></div>
+        <ul class="feats">
+          <li>Dead easy to drive &amp; park</li>
+          <li>Cheap insurance, tax &amp; fuel</li>
+          <li class="rel">Kia = rock-solid reliability</li>
+        </ul>
+        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Kia&model=Picanto&price-search-type=monthly&maximum-monthly-payment=150&deposit=0&no-of-payments=60&fuel-type=Petrol&sort=price-asc" target="_blank">See live Kia Picanto deals →</a>
+        <div class="note">The no-stress, no-surprises pick (a bit like the i10 your dad likes).</div>
+      </div>
+    </div>
+
+    <div class="card" data-car="u-astra">
+      <div class="badge">★ NEWEST BUDGET</div><div class="own">✓ Own it at end</div>
+      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/7721a17c185542dcafb4e5473368726c.jpg" alt="Vauxhall Astra" onerror="this.parentElement.style.display='none'"></div>
+      <div class="body">
+        <div><div class="name">Vauxhall Astra SRi Nav</div><div class="trim">1.4i Turbo SRi Nav Sports Tourer (auto) · estate</div></div>
+        <div class="priceRow"><span class="price">£150</span><span class="permo">/mo (own it)</span><span class="cash">£6,200 cash</span></div>
+        <div class="stats"><span><b>2020</b> ⭐</span><span><b>62,000</b> mi</span><span>1 owner · FSH</span></div>
+        <ul class="feats">
+          <li>Newest car in the budget tier (2020)</li>
+          <li>Sat nav, sporty SRi trim, big estate boot</li>
+          <li class="rel">Loads of space for the money; cheap parts</li>
+        </ul>
+        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Vauxhall&model=Astra&price-search-type=monthly&maximum-monthly-payment=150&deposit=0&no-of-payments=60&fuel-type=Petrol&sort=price-asc" target="_blank">See live Vauxhall Astra deals →</a>
+        <div class="note">Most car/space for £150/mo — if you don't mind an estate shape.</div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>
+    <b>How the money works:</b> e.g. £200/mo × 60 months = <b>£12,000</b> over 5 years, then the car's <b>yours</b> (likely £3–5k resale) — vs a lease (~£330 × 48 = £15,840) where you hand it back with nothing. £150/mo × 60 = £9,000 and you own it. Add ~£40–60/mo for servicing/MOT/tyres on a used car.<br><br>
+    Figures are AutoTrader <b>HP/Conditional Sale</b> examples (£0 deposit, 60 months) on specific cars — individual cars sell fast, so each "See live deals" link shows <b>current stock for that model</b>. Always test drive &amp; check service history before buying.<br><br>
+    <b>My steer:</b> 🛡️ <b>Toyota RAV4</b> or <b>Kia Picanto</b> for own-it-and-forget reliability · ✨ <b>Fiat 500X</b> (26k miles!) or <b>Renault Captur</b> (2021) for the techy/fun vibe · 💷 <b>Škoda Fabia</b> for the sensible cheaper buy.<br><br>
+    💬 Comments are shared &amp; live — Max and Dad can both add notes under any car. <a href="./" style="color:var(--accent)">← Back to the lease options (Page 1)</a>
+  </footer>
+</div>
+
+<script>
+(function(){
+  var API="https://car-lease-comments.maxyouell-work.workers.dev";
+  var SAVED=localStorage.getItem('cl_name')||'';
+  function esc(s){return (s||'').replace(/[&<>"]/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c];});}
+  function fmt(ts){try{return new Date(ts).toLocaleDateString('en-GB',{day:'numeric',month:'short'});}catch(e){return '';}}
+  function listHtml(list){
+    if(!list||!list.length) return '<div class="cmt-empty">No notes yet — add one 👇</div>';
+    return list.map(function(c){return '<div class="cmt"><b>'+esc(c.name)+'</b><span class="cmt-time">'+fmt(c.ts)+'</span><br>'+esc(c.text)+'</div>';}).join('');
+  }
+  document.querySelectorAll('[data-car]').forEach(function(card){
+    var body=card.querySelector('.body');
+    var sec=document.createElement('div');
+    sec.className='cmts';
+    sec.innerHTML='<h4>💬 Notes</h4><div data-list><div class="cmt-empty">Loading…</div></div>'+
+      '<div class="cmt-form">'+
+      '<input class="cmt-name" placeholder="Your name" value="'+esc(SAVED)+'" maxlength="40">'+
+      '<textarea class="cmt-text" placeholder="Add a comment…" maxlength="1000"></textarea>'+
+      '<button class="cmt-post">Post comment</button></div>';
+    body.appendChild(sec);
+  });
+  function loadAll(){
+    fetch(API,{cache:'no-store'}).then(function(r){return r.json();}).then(function(all){
+      document.querySelectorAll('[data-car]').forEach(function(card){
+        var id=card.getAttribute('data-car');
+        card.querySelector('[data-list]').innerHTML=listHtml(all[id]);
+      });
+    }).catch(function(){
+      document.querySelectorAll('[data-list]').forEach(function(el){el.innerHTML='<div class="cmt-empty">Couldn\'t load notes (offline?)</div>';});
+    });
+  }
+  loadAll();
+  document.addEventListener('click',function(e){
+    var btn=e.target.closest&&e.target.closest('.cmt-post'); if(!btn) return;
+    var card=btn.closest('[data-car]'); var id=card.getAttribute('data-car');
+    var nameI=card.querySelector('.cmt-name'); var textI=card.querySelector('.cmt-text');
+    var name=(nameI.value||'').trim(); var text=(textI.value||'').trim();
+    if(!text){textI.focus();return;}
+    if(name){localStorage.setItem('cl_name',name);}
+    btn.disabled=true; var orig=btn.textContent; btn.textContent='Saving…';
+    fetch(API,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({car:id,name:name,text:text})})
+      .then(function(r){return r.json();})
+      .then(function(d){
+        card.querySelector('[data-list]').innerHTML=listHtml(d.comments);
+        textI.value='';
+        if(name){document.querySelectorAll('.cmt-name').forEach(function(n){if(!n.value)n.value=name;});}
+      })
+      .catch(function(){alert('Could not save — check your connection and try again.');})
+      .finally(function(){btn.disabled=false;btn.textContent=orig;});
+  });
+})();
+</script>
+</body>
+</html>
