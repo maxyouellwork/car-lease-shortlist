@@ -21,13 +21,11 @@
   .sub{color:var(--mut);font-size:.95rem;margin-bottom:16px}
   .infobox{background:var(--info);border:1px solid #2a4a63;border-radius:14px;padding:13px 16px;margin-bottom:12px;font-size:.86rem}
   .infobox h3{font-size:.92rem;margin-bottom:5px;color:#7fd0ff}
-  .infobox p{color:#cfe2ef;margin-bottom:4px}
-  .infobox b{color:#fff}
+  .infobox p{color:#cfe2ef;margin-bottom:4px}.infobox b{color:#fff}
   .warnbox{background:var(--warn);border:1px solid #6a4a1d;border-radius:14px;padding:13px 16px;margin-bottom:12px;font-size:.86rem}
   .warnbox h3{font-size:.92rem;margin-bottom:5px;color:#ffce6b}
   .warnbox p{color:#f0dcc0;margin-bottom:4px}.warnbox b{color:#fff}
   .fambox{background:var(--fam);border:1px solid #4a3a6a;border-radius:14px;padding:13px 16px;margin-bottom:12px;font-size:.86rem}
-  .fambox h3{font-size:.92rem;margin-bottom:6px;color:#c9a8ff}
   .fambox p{color:#e7d9f5;margin-bottom:4px}.fambox b{color:#fff}
   h2{font-size:1.3rem;margin:32px 0 4px;letter-spacing:-.01em}
   .h2sub{color:var(--mut);font-size:.85rem;margin-bottom:14px}
@@ -50,6 +48,7 @@
   .stats{display:flex;flex-wrap:wrap;gap:6px}
   .stats span{background:var(--chip);border:1px solid var(--line);border-radius:8px;padding:4px 8px;font-size:.73rem;color:var(--mut)}
   .stats b{color:var(--txt);font-weight:600}
+  .dist{background:#10263a !important;color:#7fd0ff !important;border:1px solid #2a4a63 !important;font-weight:600}
   .feats{list-style:none;display:flex;flex-direction:column;gap:5px;margin-top:2px}
   .feats li{font-size:.83rem;padding-left:20px;position:relative}
   .feats li::before{content:"✓";position:absolute;left:0;color:var(--accent);font-weight:700}
@@ -57,8 +56,8 @@
   .feats li.warn::before{content:"!";color:var(--accent2);font-weight:700}
   .feats li.star::before{content:"🌅"}
   .mumq{font-size:.8rem;background:#1f1430;border:1px solid #4a3a6a;color:#d9c7f0;border-radius:9px;padding:6px 10px}
-  .live{display:inline-block;margin-top:2px;font-size:.8rem;color:#7fd0ff;text-decoration:none;font-weight:600}
-  .note{font-size:.74rem;color:var(--mut);font-style:italic;padding-top:2px}
+  .view{display:block;margin-top:6px;text-align:center;background:#10263a;border:1px solid #2a4a63;color:#7fd0ff;text-decoration:none;font-weight:700;font-size:.85rem;padding:9px;border-radius:9px}
+  .note{font-size:.74rem;color:var(--mut);font-style:italic;padding-top:4px}
   .cmts{border-top:1px dashed var(--line);margin-top:6px;padding-top:10px}
   .cmts h4{font-size:.72rem;color:var(--mut);margin-bottom:7px;text-transform:uppercase;letter-spacing:.06em}
   .cmt{font-size:.82rem;background:#0f1319;border:1px solid var(--line);border-radius:9px;padding:7px 10px;margin-bottom:5px;word-wrap:break-word}
@@ -82,7 +81,7 @@
   </div>
 
   <h1>🚗 Used Cars — Pay Monthly &amp; Own It</h1>
-  <div class="sub">Hire Purchase (HP) · £0 deposit · <b>4-year term</b> · automatic · petrol/hybrid · it's YOURS at the end · prices 6 Jun 2026</div>
+  <div class="sub">Hire Purchase (HP) · £0 deposit · <b>4-year term</b> · automatic · it's YOURS at the end · each car links straight to the nearest real listing · prices 7 Jun 2026</div>
 
   <div class="fambox">
     <p>💚 <b>Mum loves:</b> the <b>Nissan Juke</b> ("REALLY like this!"), <b>Peugeot 208</b> ("MUM's favourite"), Toyota Aygo X ("I love this!")</p>
@@ -91,23 +90,24 @@
   </div>
 
   <div class="infobox">
-    <h3>💡 Own it = HP, not PCP</h3>
-    <p>These all let you <b>pay monthly then own the car</b> (Hire Purchase). Monthlies are <b>estimates over 4 years at £0 deposit</b> — exact figure depends on the APR you're offered, so use the "live deals" links to confirm. A <b>5-year term knocks ~£40–50/mo off</b> if you want it lower.</p>
-    <p>⚠️ Beware "£300/mo" ads on £15k+ cars — those are usually <b>PCP</b> (big balloon at the end; you don't own it). To truly own on HP, ~£250–320/mo over 4 yrs = a <b>£10–12k car</b>.</p>
+    <h3>📍 Tap "View this exact car" to open the real listing</h3>
+    <p>Each card links to the <b>nearest actual car</b> to Huddersfield (write-offs excluded) — distance shown on the card. Monthlies are <b>estimates over 4 years at £0 deposit</b> (exact APR varies); a 5-yr term drops them ~£40–50/mo. Used cars sell fast, so if one's gone the link shows similar.</p>
+    <p>⚠️ Ignore "£300/mo" PCP ads on £16k cars — those you <b>don't own</b>. To truly own on HP, ~£250–320/mo over 4 yrs = a £9–12k car.</p>
   </div>
 
-  <h2>⭐ Your 4 favourites — re-quoted over 4 years</h2>
-  <div class="h2sub">Shorter 4-yr term (was 5) = less interest, you own it sooner. ≈ monthly on HP, £0 deposit.</div>
+  <h2>⭐ Your 4 favourites</h2>
+  <div class="h2sub">Nearest clean automatic of each, with a direct link. ≈ monthly on HP, £0 deposit, 4 yrs.</div>
   <div class="grid">
 
     <div class="card pick" data-car="u-captur">
       <div class="badge">★ FAVOURITE</div><div class="own">✓ Own it</div>
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/2d957d2719c74457b9a04ffa7ddb090b.jpg" alt="Renault Captur" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">Renault Captur Iconic</div><div class="trim">1.3 TCe Iconic EDC (auto) · small SUV</div></div>
-        <div class="priceRow"><span class="price">≈£224</span><span class="permo">/mo · 4yr</span><span class="cash">£8,350 cash · 2021 · 66k mi</span></div>
-        <ul class="feats"><li>Newest of your faves (2021), modern tech</li><li>Nav, camera, big screen</li><li class="rel">1.3 engine solid; EDC auto can be hesitant</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Renault&model=Captur&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live Captur deals →</a>
+        <div><div class="name">Renault Captur</div><div class="trim">1.2 TCe Nav EDC (auto) · small SUV</div></div>
+        <div class="priceRow"><span class="price">≈£255</span><span class="permo">/mo · 4yr</span><span class="cash">£9,450 cash</span></div>
+        <div class="stats"><span class="dist">📍 Pontefract · 18 mi</span><span><b>2019</b></span><span><b>50k</b> mi</span></div>
+        <ul class="feats"><li>Nav, camera, modern small SUV</li><li class="rel">1.3/1.2 engine solid; EDC auto</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202604231807306" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
@@ -115,10 +115,11 @@
       <div class="badge">★ FAVOURITE</div><div class="own">✓ Own it</div>
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/cf7ef201a5d44e588903b0500645bbb0.jpg" alt="Volvo V40" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">Volvo V40 Inscription</div><div class="trim">1.5 T2 Inscription (auto) · premium hatch</div></div>
-        <div class="priceRow"><span class="price">≈£240</span><span class="permo">/mo · 4yr</span><span class="cash">£8,950 cash · 2018 · 75k mi</span></div>
-        <ul class="feats"><li>Classy, safe, premium — the non-chav Audi alternative</li><li>Top Inscription spec (leather, big screen)</li><li class="rel">Solid &amp; understated</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Volvo&model=V40&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live Volvo V40 deals →</a>
+        <div><div class="name">Volvo V40 Momentum Nav</div><div class="trim">1.5 T2 Auto · premium hatch</div></div>
+        <div class="priceRow"><span class="price">≈£270</span><span class="permo">/mo · 4yr</span><span class="cash">£10,024 cash</span></div>
+        <div class="stats"><span class="dist">📍 Bradford · 12 mi</span><span><b>2018</b></span><span><b>62k</b> mi</span></div>
+        <ul class="feats"><li>Classy, safe, premium — non-chav Audi alternative</li><li>Nav Plus + Intellisafe Pro pack</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202605182487896" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
@@ -127,9 +128,10 @@
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/90532918409f4530852b173d25869a4d.jpg" alt="Toyota RAV4" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">Toyota RAV4 Icon</div><div class="trim">2.0 Icon 4WD (auto) · proper SUV</div></div>
-        <div class="priceRow"><span class="price">≈£240</span><span class="permo">/mo · 4yr</span><span class="cash">£8,950 cash · 2013 · 88k mi</span></div>
-        <ul class="feats"><li>Camera, sat nav, cruise, towbar</li><li class="rel">Toyota = bulletproof, the own-it-forever pick</li><li class="warn">Older &amp; higher miles; 4WD thirstier</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Toyota&model=RAV4&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live RAV4 deals →</a>
+        <div class="priceRow"><span class="price">≈£240</span><span class="permo">/mo · 4yr</span><span class="cash">£8,900 cash</span></div>
+        <div class="stats"><span class="dist">📍 Bourne · 81 mi</span><span><b>2013</b></span><span><b>88k</b> mi</span></div>
+        <ul class="feats"><li>Camera, nav, cruise</li><li class="rel">Toyota = bulletproof, own-it-forever pick</li><li class="warn">Furthest away; clean RAV4 autos are rare nearby</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202604281959896" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
@@ -137,17 +139,18 @@
       <div class="badge">★ FAVOURITE</div><div class="own">✓ Own it</div>
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/7721a17c185542dcafb4e5473368726c.jpg" alt="Vauxhall Astra" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">Vauxhall Astra SRi Nav</div><div class="trim">1.4T SRi Nav Sports Tourer (auto) · estate</div></div>
-        <div class="priceRow"><span class="price">≈£166</span><span class="permo">/mo · 4yr</span><span class="cash">£6,200 cash · 2020 · 62k mi</span></div>
-        <ul class="feats"><li><b>Cheapest of your faves</b> by far</li><li>Sat nav, sporty SRi trim, huge estate boot</li><li class="rel">1.4T (older chain engine), cheap parts</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Vauxhall&model=Astra&price-search-type=monthly&maximum-monthly-payment=300&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live Astra deals →</a>
+        <div><div class="name">Vauxhall Astra Elite Nav</div><div class="trim">1.4T Elite Nav (auto) · hatch</div></div>
+        <div class="priceRow"><span class="price">≈£230</span><span class="permo">/mo · 4yr</span><span class="cash">£8,500 cash</span></div>
+        <div class="stats"><span class="dist">📍 Oldham · 18 mi</span><span><b>2018</b></span><span><b>53k</b> mi</span></div>
+        <ul class="feats"><li>Sat nav, top Elite trim, roomy</li><li class="rel">1.4T (older chain engine), cheap parts</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202511198009548" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
   </div>
 
-  <h2>✨ More to consider — newer, lower miles (~£260–320/mo, own it)</h2>
-  <div class="h2sub">Pushing the budget as an investment. 2019–2024 cars, lower mileage, more tech. 4-yr HP, £0 deposit.</div>
+  <h2>✨ More to consider — newer, lower miles (~£300/mo, own it)</h2>
+  <div class="h2sub">Pushing the budget as an investment. Nearest clean automatic of each + direct link.</div>
   <div class="grid">
 
     <div class="card mum" data-car="u-juke2">
@@ -155,10 +158,11 @@
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/e9f0cc38c61148808cd51cecaa863ffd.jpg" alt="Nissan Juke" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">Nissan Juke Acenta</div><div class="trim">1.0 DIG-T Acenta DCT (auto) · crossover</div></div>
-        <div class="priceRow"><span class="price">≈£315</span><span class="permo">/mo · 4yr</span><span class="cash">£11,850 cash · 2020 · 19,500 mi ⭐</span></div>
+        <div class="priceRow"><span class="price">≈£315</span><span class="permo">/mo · 4yr</span><span class="cash">£11,850 cash</span></div>
+        <div class="stats"><span class="dist">📍 Derby · 55 mi</span><span><b>2020</b></span><span><b>19.5k</b> mi ⭐</span></div>
         <div class="mumq">💬 <b>Mum:</b> "REALLY like this! Think Romany &amp; Matt were gonna get one."</div>
-        <ul class="feats"><li><b>Lowest miles here</b> (19.5k) for a 2020</li><li>Touchscreen, Apple CarPlay, rear sensors</li><li class="rel">1.0 chain engine — reliable</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Nissan&model=Juke&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live Juke deals →</a>
+        <ul class="feats"><li><b>Lowest miles here</b> (19.5k)</li><li>Touchscreen, CarPlay, rear sensors</li><li class="rel">1.0 chain engine — reliable</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202605062165559" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
@@ -167,45 +171,47 @@
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/a27f35993e1a4d28bbfb1535b4e44fc5.jpg" alt="Peugeot 208" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">Peugeot 208 GT Line</div><div class="trim">1.2 PureTech GT Line EAT (auto) · supermini</div></div>
-        <div class="priceRow"><span class="price">≈£305</span><span class="permo">/mo · 4yr</span><span class="cash">£11,495 cash · 2020 · 54k mi</span></div>
+        <div class="priceRow"><span class="price">≈£325</span><span class="permo">/mo · 4yr</span><span class="cash">£12,069 cash</span></div>
+        <div class="stats"><span class="dist">📍 Brighouse · 4 mi 🎯</span><span><b>2020</b></span><span><b>47k</b> mi</span></div>
         <div class="mumq">💬 <b>Mum:</b> "MUM's favourite" ⭐</div>
-        <ul class="feats"><li>Cruise, rev cam, lane assist, nav — well loaded</li><li>Funky 3D i-Cockpit, stylish</li><li class="warn">1.2 PureTech "wet belt" — only buy with belt-service proof</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Peugeot&model=208&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live 208 deals →</a>
+        <ul class="feats"><li>Cruise, rev cam, lane assist, nav</li><li>Funky 3D i-Cockpit · only 4 miles away!</li><li class="warn">1.2 PureTech "wet belt" — get belt-service proof</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202605192528546" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
     <div class="card pick" data-car="u-focus">
       <div class="badge">🌅 PANORAMIC ROOF</div><div class="own">✓ Own it</div>
-      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/858fffb47259431ab4fff4a1aa41241c.jpg" alt="Ford Focus Active X" onerror="this.parentElement.style.display='none'"></div>
+      <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/858fffb47259431ab4fff4a1aa41241c.jpg" alt="Ford Focus Active" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">Ford Focus Active X</div><div class="trim">1.0T EcoBoost Active X (auto) · raised hatch</div></div>
-        <div class="priceRow"><span class="price">≈£295</span><span class="permo">/mo · 4yr</span><span class="cash">£10,990 cash · 2019 · 60k mi</span></div>
-        <ul class="feats"><li class="star">Panoramic roof — the cool roof you wanted!</li><li>Rugged "Active" crossover styling, big screen</li><li class="rel">This one's the <b>timing-chain</b> engine (avoids Ford's wet-belt) ✓</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Ford&model=Focus&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live Focus deals →</a>
-        <div class="note">From your screenshot — good eye, the roof + chain engine make it a smart pick.</div>
+        <div><div class="name">Ford Focus Active</div><div class="trim">1.0T EcoBoost Active (auto) · raised hatch</div></div>
+        <div class="priceRow"><span class="price">≈£315</span><span class="permo">/mo · 4yr</span><span class="cash">£11,790 cash</span></div>
+        <div class="stats"><span class="dist">📍 Wakefield · 12 mi</span><span><b>2020</b></span><span><b>36.6k</b> mi</span></div>
+        <ul class="feats"><li class="star">Panoramic roof — the cool roof you wanted!</li><li>Rugged "Active" crossover styling</li><li class="rel">Check it's the timing-chain engine (not wet belt)</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202603080511295" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
     <div class="card" data-car="u-c3">
-      <div class="own">✓ Own it</div>
+      <div class="badge">🎯 1 MILE AWAY</div><div class="own">✓ Own it</div>
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/f1941c79026c4c0c9bbdd7ba5224879c.jpg" alt="Citroen C3" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">Citroën C3 PLUS</div><div class="trim">1.2 PureTech PLUS EAT6 (auto) · supermini</div></div>
-        <div class="priceRow"><span class="price">≈£320</span><span class="permo">/mo · 4yr</span><span class="cash">£12,000 cash · 2024 · 29,600 mi</span></div>
-        <ul class="feats"><li><b>Nearly new (2024)</b>, comfy &amp; easy to park</li><li>Parking camera, DAB, Apple CarPlay</li><li class="warn">1.2 PureTech "wet belt" — get belt-service proof</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Citroen&model=C3&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live C3 deals →</a>
-        <div class="note">From your screenshot — the newest car here; Mum would approve of the easy parking.</div>
+        <div class="priceRow"><span class="price">≈£320</span><span class="permo">/mo · 4yr</span><span class="cash">£12,000 cash</span></div>
+        <div class="stats"><span class="dist">📍 Huddersfield · 1 mi 🎯</span><span><b>2024</b></span><span><b>29.6k</b> mi</span></div>
+        <ul class="feats"><li><b>Nearly new (2024)</b> &amp; literally on your doorstep</li><li>Parking camera, DAB, Apple CarPlay</li><li class="warn">1.2 PureTech "wet belt" — get belt-service proof</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202605202542875" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
     <div class="card" data-car="u-arona">
-      <div class="own">✓ Own it</div>
+      <div class="badge">🎯 4 MILES AWAY</div><div class="own">✓ Own it</div>
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/4df6224a9f2641b6a46435f48f017bab.jpg" alt="SEAT Arona" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
-        <div><div class="name">SEAT Arona FR</div><div class="trim">1.0 TSI FR DSG (auto) · small SUV</div></div>
-        <div class="priceRow"><span class="price">≈£285</span><span class="permo">/mo · 4yr</span><span class="cash">£10,595 cash · 2020 · 57k mi</span></div>
-        <ul class="feats"><li>Sporty FR trim — Apple CarPlay, nav, sensors</li><li>Same group/quality as VW; raised SUV stance</li><li class="rel">1.0 TSI chain engine — sound</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=SEAT&model=Arona&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live Arona deals →</a>
+        <div><div class="name">SEAT Arona</div><div class="trim">1.0 TSI DSG (auto) · small SUV</div></div>
+        <div class="priceRow"><span class="price">≈£320</span><span class="permo">/mo · 4yr</span><span class="cash">£11,999 cash</span></div>
+        <div class="stats"><span class="dist">📍 Brighouse · 4 mi 🎯</span><span><b>2023</b></span><span><b>57k</b> mi</span></div>
+        <ul class="feats"><li>Newer (2023), Apple CarPlay, nav, sensors</li><li>Same group/quality as VW; raised SUV stance</li><li class="rel">1.0 TSI chain engine — sound</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202605262703435" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
@@ -214,41 +220,44 @@
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/3a360fc347564727a442e44551111230.jpg" alt="Hyundai i20" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">Hyundai i20 Premium Nav</div><div class="trim">1.0 T-GDi Premium Nav DCT (auto) · supermini</div></div>
-        <div class="priceRow"><span class="price">≈£300</span><span class="permo">/mo · 4yr</span><span class="cash">£11,188 cash · 2020 · 44k mi</span></div>
-        <ul class="feats"><li>Loaded: camera, sensors, sat nav, air-con</li><li class="rel">Hyundai = very reliable, 1.0 chain engine</li><li>Easy size to park (Mum-approved shape)</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Hyundai&model=i20&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live i20 deals →</a>
+        <div class="priceRow"><span class="price">≈£300</span><span class="permo">/mo · 4yr</span><span class="cash">£11,188 cash</span></div>
+        <div class="stats"><span class="dist">📍 Cleveland · 76 mi</span><span><b>2020</b></span><span><b>44k</b> mi</span></div>
+        <ul class="feats"><li>Loaded: camera, sensors, sat nav, air-con</li><li class="rel">Hyundai = very reliable, 1.0 chain engine</li><li class="warn">Bit far away — check live link for nearer ones</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202604302008066" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
     <div class="card" data-car="u-rio">
-      <div class="own">✓ Own it</div>
+      <div class="badge">🎯 6 MILES AWAY</div><div class="own">✓ Own it</div>
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/94fa7d11e40848509f36890bf8a7bdf8.jpg" alt="Kia Rio" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">Kia Rio 2</div><div class="trim">1.0 T-GDi 2 DCT (auto) · supermini</div></div>
-        <div class="priceRow"><span class="price">≈£300</span><span class="permo">/mo · 4yr</span><span class="cash">£11,263 cash · 2021 · 40k mi</span></div>
-        <ul class="feats"><li>Newest reliable supermini here (2021)</li><li>Apple CarPlay, easy to drive &amp; park</li><li class="rel">Kia = rock-solid; 1.0 chain engine</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=Kia&model=Rio&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live Kia Rio deals →</a>
+        <div class="priceRow"><span class="price">≈£300</span><span class="permo">/mo · 4yr</span><span class="cash">£11,263 cash</span></div>
+        <div class="stats"><span class="dist">📍 Halifax · 6 mi 🎯</span><span><b>2021</b></span><span><b>40.5k</b> mi</span></div>
+        <ul class="feats"><li>Reliable supermini, Apple CarPlay</li><li>Easy to drive &amp; park, close by</li><li class="rel">Kia = rock-solid; 1.0 chain engine</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-details/202605122331093" target="_blank">👉 View this exact car →</a>
       </div>
     </div>
 
     <div class="card" data-car="u-mgzs">
-      <div class="badge">💷 CHEAPEST HERE</div><div class="own">✓ Own it</div>
+      <div class="badge">💷 CHEAPEST</div><div class="own">✓ Own it</div>
       <div class="imgwrap"><img src="https://m.atcdn.co.uk/a/media/w480/371b796533d641a69dac868b0a4e1ec2.jpg" alt="MG ZS" onerror="this.parentElement.style.display='none'"></div>
       <div class="body">
         <div><div class="name">MG ZS Exclusive</div><div class="trim">1.0 T-GDI Exclusive (auto) · small SUV</div></div>
-        <div class="priceRow"><span class="price">≈£260</span><span class="permo">/mo · 4yr</span><span class="cash">£9,690 cash · 2019 · 57k mi</span></div>
-        <ul class="feats"><li>Top "Exclusive" trim: leather seats + sat nav</li><li>Roomy small SUV, big value</li><li class="rel">1.0 chain engine; cheapest way into a tech SUV</li></ul>
-        <a class="live" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&transmission=Automatic&make=MG&model=ZS&price-search-type=monthly&maximum-monthly-payment=350&deposit=0&no-of-payments=48&fuel-type=Petrol&sort=price-asc" target="_blank">See live MG ZS deals →</a>
+        <div class="priceRow"><span class="price">≈£260</span><span class="permo">/mo · 4yr</span><span class="cash">~£9,700 cash</span></div>
+        <div class="stats"><span class="dist">📍 see nearest</span><span>leather + sat nav</span></div>
+        <ul class="feats"><li>Top "Exclusive" trim: leather + sat nav</li><li>Cheapest way into a tech SUV</li><li class="warn">No nearby auto in stock today — tap below for live stock</li></ul>
+        <a class="view" href="https://www.autotrader.co.uk/car-search?postcode=HD13DH&make=MG&model=ZS&transmission=Automatic&fuel-type=Petrol&fuel-type=Hybrid%20%E2%80%93%20Petrol%2FElectric&year-from=2018&price-to=12000&maximum-mileage=80000&sort=distance" target="_blank">📍 See nearest MG ZS autos →</a>
       </div>
     </div>
 
   </div>
 
   <footer>
-    <b>How the money works:</b> on HP you pay monthly &amp; <b>own the car</b> at the end (worth a few grand resale) — unlike a lease where you hand it back. Monthlies are <b>estimates over 4 years, £0 deposit</b>; exact APR varies, and a 5-year term drops them ~£40–50/mo. Budget ~£40–60/mo on top for servicing/MOT/tyres on a used car.<br><br>
-    Figures from AutoTrader cash prices (6 Jun 2026). Specific cars sell fast — "See live deals" links show <b>current stock for that model</b>. Always test drive &amp; check service history (especially the wet-belt cars).<br><br>
-    <b>Steer:</b> 🛡️ <b>Toyota RAV4</b> = own-it-and-forget · 💜 <b>Nissan Juke</b> (Mum-approved, 19.5k miles!) or <b>Volvo V40</b> for classy · 🌅 <b>Ford Focus Active X</b> for the roof · 💷 <b>MG ZS</b> cheapest tech SUV.<br><br>
-    💬 Comments are shared &amp; live — Max, Mum &amp; Dad can all add notes under any car. <a href="./" style="color:var(--accent)">← Back to the lease options (Page 1)</a>
+    <b>How the money works:</b> on HP you pay monthly &amp; <b>own the car</b> at the end (worth a few grand resale) — unlike a lease where you hand it back. Monthlies are <b>estimates over 4 years, £0 deposit</b>; exact APR varies, and a 5-year term drops them ~£40–50/mo. Budget ~£40–60/mo on top for servicing/MOT/tyres.<br><br>
+    Each "View this exact car" opens the <b>nearest real listing</b> on AutoTrader (write-offs excluded, as of 7 Jun 2026). Cars sell fast — if one's gone, AutoTrader shows similar. Always test drive &amp; check service history (especially the wet-belt cars).<br><br>
+    <b>Closest to home:</b> 🎯 Citroën C3 (1 mi) · Peugeot 208 &amp; SEAT Arona (4 mi) · Kia Rio (6 mi) · Volvo V40 &amp; Ford Focus (12 mi).<br><br>
+    💬 Comments are shared &amp; live — Max, Mum &amp; Dad can all add notes. <a href="./" style="color:var(--accent)">← Back to the lease options (Page 1)</a>
   </footer>
 </div>
 
